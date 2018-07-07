@@ -1,10 +1,7 @@
 package fluffy.android.com.mycoffe.database.dao
 
 import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import fluffy.android.com.mycoffe.database.models.Coffee
 import fluffy.android.com.mycoffe.database.models.UserCoffee
 
@@ -17,8 +14,11 @@ interface CoffeeDao {
     @Query("SELECT * FROM Coffee WHERE id =:id")
     fun getCoffee(id: String): Coffee
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCoffee(coffee: Coffee)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertCoffeeList(coffees: List<Coffee>)
 
     @Delete
     fun deleteCoffee(coffee: Coffee)
@@ -30,7 +30,7 @@ interface CoffeeDao {
     @Query("SELECT * FROM UserCoffee WHERE id =:id")
     fun getUserCoffee(id: String): UserCoffee
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUserCoffee(userCoffee: UserCoffee)
 
     @Delete

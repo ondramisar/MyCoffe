@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:921185406670:android:2b3757b54c899f3f",
+        "mobilesdk_app_id": "1:921185406670:android:7c28431f144b923a",
         "android_client_info": {
-          "package_name": "fluffy.android.com"
+          "package_name": "fluffy.android.com.mycoffe"
         }
       },
       "oauth_client": [
